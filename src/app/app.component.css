@@ -1,0 +1,56 @@
+/*Container*/
+.wrap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/*Header settings dimensions*/
+.header {
+  grid-area: header;
+  grid-column: 1/12;
+  grid-row: 1;
+}
+
+/*Side bar settings dimensions*/
+.sidebar {
+  grid-area: sidebar;
+  grid-column: 1/2;
+  padding: 10px;
+}
+
+/*Map settings dimensions*/
+.section {
+  grid-area: section;
+  grid-column: 2/5;
+}
+
+/*Mobile view*/
+@media screen and (max-width: 700px) {
+
+  /*Set container view*/
+  .wrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template:
+    'header'
+    'sidebar'
+    'section'
+    ;
+  }
+
+  /*Set header*/
+  .header {
+    grid-area: header;
+  }
+
+  /*Set side bar*/
+  .sidebar {
+    grid-area: sidebar;
+    padding: 10px;
+  }
+
+  /*Set map section*/
+  .section {
+    grid-area: section;
+  }
+}

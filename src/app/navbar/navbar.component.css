@@ -1,0 +1,126 @@
+* {
+padding: 0;
+margin: 0;
+}
+
+/*Container for navbar*/
+.wrappernav {
+  background-color: #E06856;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template: 'image navbartop';
+  align-items: center;
+}
+
+/*Logo div*/
+.image {
+  grid-area: image;
+  margin: 0;
+  padding: 0;
+}
+
+/*Logo Image*/
+.wrappernav .image > img {
+  max-width: 150px;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: white;
+  font-weight: 700;
+}
+
+a:link, a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+/*Div from wrapper container, holds navbar*/
+.navbartop {
+  grid-area: navbartop;
+  justify-self: end;
+}
+
+/*Navbar container, holds navbar items*/
+.navbaritemsgrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-column-gap: 5px;
+  align-items: center;
+}
+
+/*Set ul/li in one line*/
+.uls {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  list-style: none;
+  justify-items: center;
+}
+
+/*Padding for ul items*/
+.uls > li {
+  padding: 10px;
+}
+
+/*Hide hamburger menu icon*/
+.mobilemenu {
+  display: none;
+}
+
+/*Mobile view*/
+@media screen and (max-width: 700px){
+
+  /*Set navbar container for mobile view*/
+  .navbaritemsgrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-column-gap: 5px;
+    align-items: center;
+    background-color: #E06856;
+  }
+
+  /*Hide navbar items*/
+  .navbaritemsgrid > ul {
+    display: none;
+    background-color: #E06856;
+  }
+
+  /*Display hamburger menu icon*/
+  .mobilemenu {
+    display: inline;
+  }
+
+  /*Set pop down menu*/
+  nav ul, nav:active ul {
+    display: none;
+    position: absolute;
+    padding: 20px;
+    background: #fff;
+    right: 0px;
+    top: 50px;
+    width: 50%;
+    border-radius: 4px 0 4px 4px;
+  }
+
+  /*Set nav items*/
+  nav li {
+    text-align: center;
+    width: 100%;
+    padding: 10px 0;
+    margin: 0;
+  }
+
+  /*Set nav ul display*/
+  nav:hover ul {
+    display: block;
+  }
+
+  /*Settings for hamburger menu icon*/
+  .mobilemenu > img {
+    width: 50px;
+    margin: 0;
+    padding: 0 10px 0 0;
+    z-index: 1000;
+  }
+}

@@ -1,0 +1,79 @@
+<!--Main page display layout-->
+<div class="wrap">
+
+  <header class="header">
+    <app-navbar></app-navbar>
+  </header>
+
+  <aside class="sidebar">
+    <app-sidebar></app-sidebar>
+  </aside>
+
+  <section class="section">
+    <app-map></app-map>
+  </section>
+
+</div>
+
+
+<!--Extra settings under viewport layout-->
+<h2>Here are some links to help you start: </h2>
+
+
+<!--Bootstrap standard tables and buttons layout-->
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+      <button class="btn btn-primary" (click)="getAlldronesAvail()">Get All Available Drones</button>
+      <button class="btn btn-primary" (click)="getAllPackages()">Get All Packages</button>
+      <button class="btn btn-primary" (click)="rearrengeTable()">Calculate Output/ Please bring up console.</button>
+    </div>
+  </div>
+</div>
+
+<table class="table table-inverse" *ngIf="tableGate.allDrones">
+  <thead>
+    <tr>
+      <th>Drone ID</th>
+      <th>Loc Lat</th>
+      <th>Loc Lon</th>
+      <th>Pack Deadline</th>
+      <th>Dest Lat</th>
+      <th>Dest Lon</th>
+      <th>Package ID</th>
+    </tr>
+  </thead>
+
+  <tbody *ngFor="let drone of drones">
+    <tr>
+      <td>{{drone.droneId}}</td>
+      <td>{{drone.location.latitude}}</td>
+      <td>{{drone.location.longitude}}</td>
+      <td>{{drone.packages[0]?.deadline}}</td>
+      <td>{{drone.packages[0]?.destination.latitude}}</td>
+      <td>{{drone.packages[0]?.destination.longitude}}</td>
+      <td>{{drone.packages[0]?.packageId}}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<table class="table table-inverse" *ngIf="tableGate.allPacks">
+  <thead>
+    <tr>
+      <th>Package ID</th>
+      <th>Pack Deadline</th>
+      <th>Dest Lat</th>
+      <th>Dest Lon</th>
+    </tr>
+  </thead>
+
+  <tbody *ngFor="let pack of packageItems">
+    <tr>
+      <td>{{pack.packageId}}</td>
+      <td>{{pack.deadline}}</td>
+      <td>{{pack.destination.latitude}}</td>
+      <td>{{pack.destination.longitude}}</td>
+    </tr>
+  </tbody>
+</table>
